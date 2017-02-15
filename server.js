@@ -1,5 +1,5 @@
-var express = require('express');
-var morgan = require('morgan');
+var express = require('express');//importing soft package --create the web servers
+var morgan = require('morgan');//output logs of server
 var path = require('path');
 
 var app = express();
