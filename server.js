@@ -10,23 +10,23 @@ app.get('/', function (req, res) {
 });
 
 app.get('/article-one',function(req, res){
-    res.sendFile('article one url is served');
+    res.send('article one url is served');
 });
 
 app.get('/article-two',function(req, res){
-    res.sendFile('article two url is served');
+    res.send('article two url is served');
 });
 
 app.get('/article-three',function(req, res){
-    res.sendFile('article three url is served');
+    res.send('article three url is served');
 });
 
 app.get('/ui/style.css', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'style.css'));
+  res.send(path.join(__dirname, 'ui', 'style.css'));
 });
 
 app.get('/ui/madi.png', function (req, res) {
-  res.sendFile(path.join(__dirname, 'ui', 'madi.png'));
+  res.send(path.join(__dirname, 'ui', 'madi.png'));
 });
 
 
