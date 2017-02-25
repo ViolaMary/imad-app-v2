@@ -9,6 +9,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
+var title;
+var heading;
+var date;
+var content;
+
 var Articles={
         'article-one':{
             title:'Article One | Janet',
