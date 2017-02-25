@@ -86,15 +86,17 @@ var htmltemplate=`
     return htmltemplate;
 }
 
-app.get('/:articlename',function(req, res){
-    var articlename = req.params.articlename;
-    res.send(createTemplate(Articles[articlename]));
-});
 var counter= 0;
 app.get('/counter',function(req, res){
     counter = counter + 1;
     res.send(counter.toString());
 });
+
+app.get('/:articlename',function(req, res){
+    var articlename = req.params.articlename;
+    res.send(createTemplate(Articles[articlename]));
+});
+
 
 app.get('/article-two',function(req, res){
     res.sendFile(path.join(__dirname, 'ui', 'article-two.html'));
