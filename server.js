@@ -9,15 +9,12 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var title;
-var heading;
-var date;
-var content;
+
 
 var Articles={
         'article-one':{
             title:'Article One | Janet',
-            heading:'Article One',
+           heading:'Article One',
             date: 'September 5 2017',
             content: `<p>This is my content for article.This is my content for article.This is my content for article.
                            This is my content for article.This is my content for article.This is my content for article.
@@ -92,7 +89,7 @@ var htmltemplate=`
 }
 
 app.get('/:articlename',function(req, res){
-    var articlename = req.param.articlename;
+    var articlename = req.params.articlename;
     res.send(createTemplate(Articles[articlename]));
 });
 
