@@ -42,7 +42,7 @@ var Articles={
                     This is my content for article This is my content for article. This is my content for article.
                 </p>`
         },
-        'article-three'={
+        'article-three':{
             title:'Article Three | Janet',
             heading:'Article Three',
             date: 'September 5 2017',
