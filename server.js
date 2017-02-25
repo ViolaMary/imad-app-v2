@@ -9,28 +9,45 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, 'ui', 'index.html'));
 });
 
-var ArticleOne={
-    title:'Article One | Janet',
-    heading:'Article One',
-    date: 'September 5 2017',
-    content: `<p>This is my content for article.This is my content for article.This is my content for article.
-                   This is my content for article.This is my content for article.This is my content for article.
-                   This is my content for article.This is.my content for article.This is my content for article.
-                   This is my content for article.This is my content for article.This is my content for article.
-                </p>
-            
-            
-            <p>This is my content for article.This is my content for article.This is my content for article.
-                   This is my content for article.This is my content for article.This is my content for article.
-                   This is my content for article.This is.my content for article.This is my content for article.
-                   This is my content for article.This is my content for article.This is my content for article.
-                </p>
-            
-                <p>This is my content for article.This is my content for article.This is my content for article.
-                   This is my content for article.This is my content for article.This is my content for article.
-                   This is my content for article.This is.my content for article.This is my content for article.
-                   This is my content for article.This is my content for article.This is my content for article.
+var Articles={
+        'article-one':{
+            title:'Article One | Janet',
+            heading:'Article One',
+            date: 'September 5 2017',
+            content: `<p>This is my content for article.This is my content for article.This is my content for article.
+                           This is my content for article.This is my content for article.This is my content for article.
+                           This is my content for article.This is.my content for article.This is my content for article.
+                           This is my content for article.This is my content for article.This is my content for article.
+                        </p>
+                    
+                    
+                    <p>This is my content for article.This is my content for article.This is my content for article.
+                           This is my content for article.This is my content for article.This is my content for article.
+                           This is my content for article.This is.my content for article.This is my content for article.
+                           This is my content for article.This is my content for article.This is my content for article.
+                        </p>
+                    
+                        <p>This is my content for article.This is my content for article.This is my content for article.
+                           This is my content for article.This is my content for article.This is my content for article.
+                           This is my content for article.This is.my content for article.This is my content for article.
+                           This is my content for article.This is my content for article.This is my content for article.
+                        </p>`
+        },
+        'article-two':{
+            title:'Article Two | Janet',
+            heading:'Article Two',
+            date: 'September 5 2017',
+            content: `<p>This is my content for article This is my content for article. This is my content for article.
+                    This is my content for article.This is my content for article.This is my content for article.
+                    This is my content for article This is my content for article. This is my content for article.
                 </p>`
+        },
+        'article-three'={
+            title:'Article Three | Janet',
+            heading:'Article Three',
+            date: 'September 5 2017',
+            content: `<p>This is my content for article This is my content for article. This is my content for article.`
+        }
 };
 function createTemplate(data){
 var title=data.title;
@@ -69,8 +86,9 @@ var htmltemplate=`
     return htmltemplate;
 }
 
-app.get('/article-one',function(req, res){
-    res.send(createTemplate(ArticleOne));
+app.get('/:articlename',function(req, res){
+    var articlename = req.param.articlename;
+    res.send(createTemplate(articles[articlename]));
 });
 
 app.get('/article-two',function(req, res){
